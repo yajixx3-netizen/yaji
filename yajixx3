@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="saveBtn">Save Data</button>
+<script>
+  const scriptURL = "https://script.google.com/macros/s/AKfycby4p4TXPWS7xRiWmpDxB49Eh5lZCI0kD15ny73ogIrirFY5Lyzs2mGZc8AtQZamzNVEBw/exec"; // paste your Web App URL here
+
+  document.getElementById("saveBtn").addEventListener("click", () => {
+    const payload = { name: "Allen Jay Incornal", score: 95 };
+
+    fetch(scriptURL, {
+      method: "POST",
+      body: JSON.stringify(payload)
+    })
+    .then(res => res.text())
+    .then(msg => alert(msg))
+    .catch(err => console.error("Error:", err));
+  });
+</script>
+
+</body>
+</html>
